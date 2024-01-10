@@ -1,9 +1,10 @@
 package main
 
 import (
-	"fmt"
 	"io"
 	"log"
+	"math/rand"
+	"strconv"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -37,12 +38,13 @@ func main() {
 	// We are streaming current time to clients in the interval 10 seconds
 	go func() {
 		for {
-			time.Sleep(time.Second * 10)
-			now := time.Now().Format("2006-01-02 15:04:05")
-			currentTime := fmt.Sprintf("The Current Time Is %v", now)
+			time.Sleep(time.Millisecond * 100)
+			//now := time.Now().Format("2006-01-02 15:04:05")
+			//currentTime := fmt.Sprintf("The Current Time Is %v", now)
 
 			// Send current time to clients message channel
-			stream.Message <- currentTime
+			//stream.Message <- currentTime
+			stream.Message <- strconv.Itoa(rand.Intn(100))
 		}
 	}()
 

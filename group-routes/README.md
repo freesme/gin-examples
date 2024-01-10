@@ -1,7 +1,6 @@
 ### Group routes
 
-This example shows how to group different routes in their own files and group them together in a orderly manner like this:
-
+这个例子展示了如何在各自的文件中对不同的路由进行分组，并以有序的方式将它们分组在一起，就像这样:
 ```go
 func getRoutes() {
 	v1 := router.Group("/v1")
